@@ -1,10 +1,10 @@
-<%= link_to "New deck", "/decks/new" %>
+<%= link_to "New deck", new_deck_path %>
 
 <% @decks.each do |deck| %>
   <div>
-    <%= link_to deck.name, "/decks/#{deck.id}" %>
+    <%= link_to deck.name, deck_path(deck.id) %>
     -
-    <%= link_to "Edit", "/decks/#{deck.id}/edit" %>
-    <%= link_to "Delete", "/decks/#{deck.id}", method: :delete %>
+    <%= link_to "Edit", edit_deck_path(deck.id) %>
+    <%= link_to "Delete", deck_path(deck.id), method: :delete %>
   </div>
 <% end %>
