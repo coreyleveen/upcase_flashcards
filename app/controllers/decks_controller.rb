@@ -24,7 +24,7 @@ class DecksController < ApplicationController
   def update
     @deck = Deck.find(params[:id])
     @deck.update_attributes(deck_params)
-    redirect_to decks_path(@deck.id)
+    redirect_to @deck
   end
 
   def destroy
