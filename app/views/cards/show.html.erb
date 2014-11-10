@@ -1,0 +1,7 @@
+<%= link_to @deck.name, @deck %>
+
+<div><%= @card.front %></div>
+<div><%= @card.back %></div>
+
+<%= link_to "Edit", edit_deck_card_path(@deck, @card) %>
+<%= link_to "Delete", [@deck, @card], method: :delete %>

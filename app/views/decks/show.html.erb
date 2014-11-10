@@ -4,3 +4,5 @@
 <% @cards.each do |card| %>
   <%= link_to card.front, [@deck, card] %>
 <% end %>
+
+<%= link_to "New card", new_deck_card_path(@deck) %>
