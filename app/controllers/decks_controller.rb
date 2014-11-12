@@ -4,7 +4,7 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
     @cards = @deck.cards
   end
 
@@ -19,22 +19,26 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
   end
 
   def update
-    @deck = Deck.find(params[:id])
-    @deck.update_attributes(deck_params)
+    @deck = find_deck
+    @deck.update(deck_params)
     redirect_to @deck
   end
 
   def destroy
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
     @deck.destroy
     redirect_to decks_path
   end
 
   private
+
+  def find_deck
+    Deck.find(params[:id])
+  end
 
   def deck_params
     params.require(:deck).permit(:name)
