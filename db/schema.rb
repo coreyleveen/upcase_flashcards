@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112054159) do
+ActiveRecord::Schema.define(version: 20141112054339) do
 
   create_table "cards", force: true do |t|
     t.string   "front"
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(version: 20141112054159) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "decks", ["user_id"], name: "index_decks_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"
