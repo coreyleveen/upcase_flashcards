@@ -3,7 +3,7 @@
 <% @decks.each do |deck| %>
   <div>
     <%= link_to deck.name, deck %>
-    -
+
     <%= link_to "Edit", edit_deck_path(deck) %>
     <%= link_to "Delete", deck, method: :delete %>
   </div>
